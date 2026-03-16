@@ -33,10 +33,7 @@ $timestampUrl = if ([string]::IsNullOrWhiteSpace($env:CODESIGN_TIMESTAMP_URL)) {
 else {
     $env:CODESIGN_TIMESTAMP_URL
 }
-
-if ([string]::IsNullOrWhiteSpace($certificateBase64) -or [string]::IsNullOrWhiteSpace($certificatePassword)) {
-    throw "Missing CODESIGN_CERTIFICATE_BASE64 or CODESIGN_CERTIFICATE_PASSWORD. Public signed releases are blocked until these secrets are configured."
-}
+$hasSigningCertificate = -not [string]::IsNullOrWhiteSpace($certificateBase64) -and -not [string]::IsNullOrWhiteSpace($certificatePassword)
 
 New-Item -ItemType Directory -Force -Path $dotnetHome, $toolDir, $publishDir, $releasesDir, $certificateDirectory | Out-Null
 $env:DOTNET_CLI_HOME = $dotnetHome
@@ -77,31 +74,41 @@ Commit: $env:GITHUB_SHA
 
 Set-Content -Path $releaseNotesPath -Value $releaseNotes -Encoding utf8
 
-Write-Host "Preparing signing certificate..."
-[System.IO.File]::WriteAllBytes($certificatePath, [Convert]::FromBase64String($certificateBase64))
-
 Write-Host "Installing Velopack CLI..."
 dotnet tool update --tool-path $toolDir vpk --version 0.0.1298
 
-$signParams = "/fd SHA256 /f `"$certificatePath`" /p `"$certificatePassword`" /tr `"$timestampUrl`" /td SHA256"
 $vpk = Join-Path $toolDir "vpk.exe"
+$packArguments = @(
+    "pack",
+    "--packId", "Musa.TemizPC",
+    "--packVersion", $Version,
+    "--packDir", $publishDir,
+    "--mainExe", "TemizPC.App.exe",
+    "--packTitle", "TemizPC",
+    "--packAuthors", "Musa",
+    "--outputDir", $releasesDir,
+    "--channel", "win",
+    "--runtime", $Runtime,
+    "--icon", $iconPath,
+    "--splashImage", $splashPath,
+    "--releaseNotes", $releaseNotesPath,
+    "--delta", "None"
+)
+
+if ($hasSigningCertificate) {
+    Write-Host "Preparing signing certificate..."
+    [System.IO.File]::WriteAllBytes($certificatePath, [Convert]::FromBase64String($certificateBase64))
+
+    $signParams = "/fd SHA256 /f `"$certificatePath`" /p `"$certificatePassword`" /tr `"$timestampUrl`" /td SHA256"
+    $packArguments += @("--signParams", $signParams)
+    Write-Host "Packaging signed release..."
+}
+else {
+    Write-Host "No code-signing certificate configured. Packaging unsigned release."
+}
 
 Write-Host "Packing installer..."
-& $vpk pack `
-    --packId "Musa.TemizPC" `
-    --packVersion $Version `
-    --packDir $publishDir `
-    --mainExe "TemizPC.App.exe" `
-    --packTitle "TemizPC" `
-    --packAuthors "Musa" `
-    --outputDir $releasesDir `
-    --channel "win" `
-    --runtime $Runtime `
-    --icon $iconPath `
-    --splashImage $splashPath `
-    --releaseNotes $releaseNotesPath `
-    --delta None `
-    --signParams $signParams
+& $vpk @packArguments
 
 Write-Host "Uploading release to GitHub..."
 & $vpk upload github `

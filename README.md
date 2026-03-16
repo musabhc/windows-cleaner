@@ -10,7 +10,7 @@
 - Runs cleanup actions with native C# file operations where possible.
 - Skips locked files instead of crashing and writes structured logs under `%LocalAppData%\TemizPC\Logs`.
 - Checks GitHub-hosted updates from inside the app when the packaged release is installed.
-- Produces a signed Windows installer from GitHub Actions when `main` changes and signing secrets are configured.
+- Produces a Windows installer from GitHub Actions when `master` or `main` changes. If signing secrets are configured it is signed; otherwise it is published unsigned.
 
 ## Built-in cleanup tasks
 
@@ -71,17 +71,17 @@ For local packaged builds, you can set:
 
 ### `release.yml`
 
-- Triggers on pushes to `main`
+- Triggers on pushes to `master` or `main`
 - Computes version `0.1.<run_number>`
-- Fails closed if signing secrets are missing
 - Publishes the WPF app as `win-x64`
 - Uses `Velopack` to create installer/update assets
 - Uploads the release to GitHub Releases
+- Signs the installer only when signing secrets are present
 
 Required secrets:
 
-- `CODESIGN_CERTIFICATE_BASE64`
-- `CODESIGN_CERTIFICATE_PASSWORD`
+- `CODESIGN_CERTIFICATE_BASE64` (optional, for signed releases)
+- `CODESIGN_CERTIFICATE_PASSWORD` (optional, for signed releases)
 - `CODESIGN_TIMESTAMP_URL` (optional; defaults to DigiCert timestamp)
 
 ## Notes
@@ -89,3 +89,4 @@ Required secrets:
 - The original batch snippet contained an `exit` before the local temp cleanup line. In this app, local temp cleanup is implemented as its own proper task instead of preserving that bug.
 - No arbitrary user-supplied command execution is included in v1.
 - The packaged release target is `win-x64`; local debug builds remain normal desktop builds.
+- A truly free public code-signing certificate for Windows desktop apps is generally not available. Unsigned releases work, but Windows SmartScreen may show warnings until you buy a certificate.

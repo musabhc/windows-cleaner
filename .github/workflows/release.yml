@@ -3,6 +3,7 @@ name: release
 on:
   push:
     branches:
+      - master
       - main
 
 permissions:
@@ -22,16 +23,6 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 8.0.x
-
-      - name: Validate signing secrets
-        shell: pwsh
-        env:
-          CODESIGN_CERTIFICATE_BASE64: ${{ secrets.CODESIGN_CERTIFICATE_BASE64 }}
-          CODESIGN_CERTIFICATE_PASSWORD: ${{ secrets.CODESIGN_CERTIFICATE_PASSWORD }}
-        run: |
-          if ([string]::IsNullOrWhiteSpace($env:CODESIGN_CERTIFICATE_BASE64) -or [string]::IsNullOrWhiteSpace($env:CODESIGN_CERTIFICATE_PASSWORD)) {
-            throw "Missing signing secrets. This workflow is fail-closed and will not publish an unsigned public release."
-          }
 
       - name: Compute version
         id: version

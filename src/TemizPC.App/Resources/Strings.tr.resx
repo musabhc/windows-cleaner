@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Window_Title" xml:space="preserve"><value>TemizPC</value></data>
+  <data name="Hero_Title" xml:space="preserve"><value>Windows'u ne temizlediğini bilerek toparla.</value></data>
+  <data name="Hero_Subtitle" xml:space="preserve"><value>İstersen önerilen paketi tek tıkla çalıştır, istersen görevleri tek tek seç. Her kart neyi sildiğini, ne kadar güvenli olduğunu ve hangi gelişmiş işlemlerde dikkatli olman gerektiğini açıkça anlatır.</value></data>
+  <data name="Admin_Active" xml:space="preserve"><value>Yönetici modu açık</value></data>
+  <data name="Version_Format" xml:space="preserve"><value>Sürüm {0}</value></data>
+  <data name="Preset_Recommended_Title" xml:space="preserve"><value>Önerilen Temizlik</value></data>
+  <data name="Preset_Recommended_Description" xml:space="preserve"><value>Günlük kullanım için güvenli varsayılan paketi açar. Bilgisayardan çok anlamayan kullanıcılar için en iyi başlangıçtır.</value></data>
+  <data name="Preset_Advanced_Title" xml:space="preserve"><value>Gelişmiş Temizlik</value></data>
+  <data name="Preset_Advanced_Description" xml:space="preserve"><value>Tüm görevleri açar; buna önbellek sıfırlama ve DISM bakımı da dahildir. Çalıştırmadan önce uyarıları gözden geçir.</value></data>
+  <data name="Section_Tasks_Title" xml:space="preserve"><value>Temizlik görevlerini seç</value></data>
+  <data name="Section_Recommended" xml:space="preserve"><value>Önerilen görevler</value></data>
+  <data name="Section_Advanced" xml:space="preserve"><value>Gelişmiş görevler</value></data>
+  <data name="Summary_Title" xml:space="preserve"><value>Temizlik öncesi özet</value></data>
+  <data name="Summary_NoneSelected" xml:space="preserve"><value>Henüz hiçbir görev seçilmedi.</value></data>
+  <data name="Summary_SelectedCount" xml:space="preserve"><value>{0} temizlik görevi seçildi</value></data>
+  <data name="Summary_Risk_Safe" xml:space="preserve"><value>Geçerli risk seviyesi: Güvenli. Bu seçim yalnızca günlük geçici dosya ve önbellekleri hedefler.</value></data>
+  <data name="Summary_Risk_Review" xml:space="preserve"><value>Geçerli risk seviyesi: Dikkat. Bu seçim, Windows'un yeniden oluşturacağı bazı sistem önbelleklerini de içerir.</value></data>
+  <data name="Summary_Risk_Advanced" xml:space="preserve"><value>Geçerli risk seviyesi: Gelişmiş. Çalıştırmadan önce kartlardaki uyarıları dikkatle oku.</value></data>
+  <data name="Summary_Guide_Default" xml:space="preserve"><value>Bir hazır paket seç veya kartları tek tek işaretle. Seçmediğin hiçbir alan temizlenmez.</value></data>
+  <data name="Summary_Guide_Selected" xml:space="preserve"><value>Aşağıdaki seçili öğeler yönetici yetkisiyle tek seferde temizlenecek.</value></data>
+  <data name="Summary_Untouched" xml:space="preserve"><value>Seçilmeyen öğeler olduğu gibi kalır. İşlem bittiğinde log klasörünü açıp sonucu inceleyebilirsin.</value></data>
+  <data name="Button_Running" xml:space="preserve"><value>Temizleniyor...</value></data>
+  <data name="Button_RunCleanup" xml:space="preserve"><value>Temizliği başlat</value></data>
+  <data name="Button_OpenLogs" xml:space="preserve"><value>Logları aç</value></data>
+  <data name="Button_CheckUpdates" xml:space="preserve"><value>Güncelleme kontrol et</value></data>
+  <data name="Button_InstallUpdate" xml:space="preserve"><value>Güncellemeyi kur</value></data>
+  <data name="Language_TR" xml:space="preserve"><value>TR</value></data>
+  <data name="Language_EN" xml:space="preserve"><value>EN</value></data>
+  <data name="Update_NotConfigured" xml:space="preserve"><value>Otomatik güncelleme henüz yapılandırılmadı.</value></data>
+  <data name="Update_NotInstalled" xml:space="preserve"><value>Güncelleme akışı paketli sürüm kurulduktan sonra aktif olur.</value></data>
+  <data name="Update_Available" xml:space="preserve"><value>Güncelleme var: {0}</value></data>
+  <data name="Update_UpToDate" xml:space="preserve"><value>Yüklü en güncel sürümü kullanıyorsun.</value></data>
+  <data name="Update_Error" xml:space="preserve"><value>Güncelleme kontrolü başarısız: {0}</value></data>
+  <data name="Update_InstallStarted" xml:space="preserve"><value>Güncelleme indirildi. TemizPC yeniden başlatılıyor.</value></data>
+  <data name="Progress_Idle" xml:space="preserve"><value>Temizlik için hazır.</value></data>
+  <data name="Progress_Completed" xml:space="preserve"><value>Temizlik tamamlandı.</value></data>
+  <data name="Progress_RunningTask" xml:space="preserve"><value>Çalışıyor: {0}</value></data>
+  <data name="Result_Empty" xml:space="preserve"><value>Henüz bir temizlik çalıştırılmadı.</value></data>
+  <data name="Result_Waiting" xml:space="preserve"><value>Bir sonraki çalıştırmadan sonra sonuç özeti burada görünecek.</value></data>
+  <data name="Result_Working" xml:space="preserve"><value>Seçili alanlar temizleniyor...</value></data>
+  <data name="Result_Running" xml:space="preserve"><value>TemizPC seçili geçici verileri siliyor ve işlem özetini hazırlıyor.</value></data>
+  <data name="Result_Failed" xml:space="preserve"><value>Temizlik tamamlanamadı.</value></data>
+  <data name="Result_Completed" xml:space="preserve"><value>Temizlik tamamlandı.</value></data>
+  <data name="Result_Summary" xml:space="preserve"><value>{0} alan açıldı, {1} öğe silindi, {2} kilitli veya korumalı öğe atlandı.</value></data>
+  <data name="Result_NoErrors" xml:space="preserve"><value>Önemli bir hata raporlanmadı.</value></data>
+  <data name="Result_ErrorCount" xml:space="preserve"><value>Temizlik sırasında {0} sorun bildirildi.</value></data>
+  <data name="Result_TaskLine" xml:space="preserve"><value>{0}: {1}</value></data>
+  <data name="Risk_Safe" xml:space="preserve"><value>Güvenli</value></data>
+  <data name="Risk_Review" xml:space="preserve"><value>Dikkat</value></data>
+  <data name="Risk_Advanced" xml:space="preserve"><value>Gelişmiş</value></data>
+  <data name="Badge_Recommended" xml:space="preserve"><value>Önerilen</value></data>
+  <data name="Badge_Advanced" xml:space="preserve"><value>Gelişmiş</value></data>
+  <data name="Task_Recent_Name" xml:space="preserve"><value>Son kullanılan öğe geçmişi</value></data>
+  <data name="Task_Recent_Description" xml:space="preserve"><value>Windows'un son açılan dosya kısayollarını temizler ve geçmiş listelerini sıfırlar.</value></data>
+  <data name="Task_WindowsTemp_Name" xml:space="preserve"><value>Windows Temp</value></data>
+  <data name="Task_WindowsTemp_Description" xml:space="preserve"><value>C:\Windows\Temp içindeki artık kullanılmayan geçici dosyaları siler.</value></data>
+  <data name="Task_LocalTemp_Name" xml:space="preserve"><value>Kullanıcı Temp</value></data>
+  <data name="Task_LocalTemp_Description" xml:space="preserve"><value>Kullanıcı profilindeki uygulama geçici dosyalarını temizler.</value></data>
+  <data name="Task_RecycleBin_Name" xml:space="preserve"><value>Geri Dönüşüm Kutusu</value></data>
+  <data name="Task_RecycleBin_Description" xml:space="preserve"><value>Daha önce silinmiş dosyalardan yer açmak için Geri Dönüşüm Kutusunu boşaltır.</value></data>
+  <data name="Task_ThumbnailCache_Name" xml:space="preserve"><value>Küçük resim önbelleği</value></data>
+  <data name="Task_ThumbnailCache_Description" xml:space="preserve"><value>Küçük resim ve ikon önizleme önbelleğini siler; Windows bunları yeniden oluşturur.</value></data>
+  <data name="Task_WindowsErrorReports_Name" xml:space="preserve"><value>Windows hata raporları</value></data>
+  <data name="Task_WindowsErrorReports_Description" xml:space="preserve"><value>Windows tarafından toplanmış hata ve çökme raporu dosyalarını siler.</value></data>
+  <data name="Task_DeliveryOptimization_Name" xml:space="preserve"><value>Delivery Optimization önbelleği</value></data>
+  <data name="Task_DeliveryOptimization_Description" xml:space="preserve"><value>Gerek kalmamış Windows güncelleme dağıtım önbelleğini temizler.</value></data>
+  <data name="Task_Prefetch_Name" xml:space="preserve"><value>Prefetch önbelleği</value></data>
+  <data name="Task_Prefetch_Description" xml:space="preserve"><value>Windows prefetch verisini siler. Windows zamanla bunu yeniden oluşturur.</value></data>
+  <data name="Task_Prefetch_Warning" xml:space="preserve"><value>Gelişmiş: Windows bu önbelleği yeniden kurarken bazı uygulamalar ilk açılışlarda kısa süre daha yavaş hissedilebilir.</value></data>
+  <data name="Task_WindowsUpdateCache_Name" xml:space="preserve"><value>Windows Update indirme önbelleği</value></data>
+  <data name="Task_WindowsUpdateCache_Description" xml:space="preserve"><value>Yeniden kullanım için tutulan Windows Update paketlerini siler.</value></data>
+  <data name="Task_WindowsUpdateCache_Warning" xml:space="preserve"><value>Dikkat: Windows şu anda güncelleme yapıyorsa bazı dosyalar işlem bitene kadar atlanır.</value></data>
+  <data name="Task_CrashDumps_Name" xml:space="preserve"><value>Çökme dökümleri</value></data>
+  <data name="Task_CrashDumps_Description" xml:space="preserve"><value>Tanılama için oluşturulmuş bellek dökümü ve uygulama çökme dosyalarını siler.</value></data>
+  <data name="Task_Dism_Name" xml:space="preserve"><value>Bileşen deposu temizliği</value></data>
+  <data name="Task_Dism_Description" xml:space="preserve"><value>Eski bileşen deposu verilerini temizlemek için DISM StartComponentCleanup komutunu çalıştırır.</value></data>
+  <data name="Task_Dism_Warning" xml:space="preserve"><value>Gelişmiş: Bu işlem uzun sürebilir; başladıktan sonra kesilmemelidir.</value></data>
+</root>

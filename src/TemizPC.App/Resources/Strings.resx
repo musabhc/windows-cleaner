@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Window_Title" xml:space="preserve"><value>TemizPC</value></data>
+  <data name="Hero_Title" xml:space="preserve"><value>Clean up Windows without guesswork.</value></data>
+  <data name="Hero_Subtitle" xml:space="preserve"><value>Pick the recommended cleanup set or choose tasks one by one. Every card explains what it removes, how safe it is, and which advanced actions deserve more caution.</value></data>
+  <data name="Admin_Active" xml:space="preserve"><value>Administrator mode active</value></data>
+  <data name="Version_Format" xml:space="preserve"><value>Version {0}</value></data>
+  <data name="Preset_Recommended_Title" xml:space="preserve"><value>Recommended Cleanup</value></data>
+  <data name="Preset_Recommended_Description" xml:space="preserve"><value>Uses the safe default set for daily cleanup. Good for friends and family who just want more free space.</value></data>
+  <data name="Preset_Advanced_Title" xml:space="preserve"><value>Advanced Cleanup</value></data>
+  <data name="Preset_Advanced_Description" xml:space="preserve"><value>Turns on every task, including cache resets and DISM maintenance. Review warnings before you run it.</value></data>
+  <data name="Section_Tasks_Title" xml:space="preserve"><value>Choose cleanup tasks</value></data>
+  <data name="Section_Recommended" xml:space="preserve"><value>Recommended tasks</value></data>
+  <data name="Section_Advanced" xml:space="preserve"><value>Advanced tasks</value></data>
+  <data name="Summary_Title" xml:space="preserve"><value>Review before cleaning</value></data>
+  <data name="Summary_NoneSelected" xml:space="preserve"><value>No tasks selected yet.</value></data>
+  <data name="Summary_SelectedCount" xml:space="preserve"><value>{0} cleanup tasks selected</value></data>
+  <data name="Summary_Risk_Safe" xml:space="preserve"><value>Current risk level: Safe. This selection only targets everyday caches and temporary files.</value></data>
+  <data name="Summary_Risk_Review" xml:space="preserve"><value>Current risk level: Review. This selection includes system caches that may take Windows a moment to rebuild.</value></data>
+  <data name="Summary_Risk_Advanced" xml:space="preserve"><value>Current risk level: Advanced. Review warnings carefully before running these tasks.</value></data>
+  <data name="Summary_Guide_Default" xml:space="preserve"><value>Select a preset or toggle individual cards. Nothing outside the selected tasks will be touched.</value></data>
+  <data name="Summary_Guide_Selected" xml:space="preserve"><value>The selected items below will be cleaned in one run with administrator access.</value></data>
+  <data name="Summary_Untouched" xml:space="preserve"><value>Unselected items stay untouched. You can always inspect the log folder after a run.</value></data>
+  <data name="Button_Running" xml:space="preserve"><value>Cleaning in progress...</value></data>
+  <data name="Button_RunCleanup" xml:space="preserve"><value>Run cleanup</value></data>
+  <data name="Button_OpenLogs" xml:space="preserve"><value>Open logs</value></data>
+  <data name="Button_CheckUpdates" xml:space="preserve"><value>Check for updates</value></data>
+  <data name="Button_InstallUpdate" xml:space="preserve"><value>Install update</value></data>
+  <data name="Language_TR" xml:space="preserve"><value>TR</value></data>
+  <data name="Language_EN" xml:space="preserve"><value>EN</value></data>
+  <data name="Update_NotConfigured" xml:space="preserve"><value>Automatic updates are not configured yet.</value></data>
+  <data name="Update_NotInstalled" xml:space="preserve"><value>Updates become active after installing the packaged release.</value></data>
+  <data name="Update_Available" xml:space="preserve"><value>Update available: {0}</value></data>
+  <data name="Update_UpToDate" xml:space="preserve"><value>You are on the latest installed version.</value></data>
+  <data name="Update_Error" xml:space="preserve"><value>Update check failed: {0}</value></data>
+  <data name="Update_InstallStarted" xml:space="preserve"><value>Update downloaded. TemizPC is restarting.</value></data>
+  <data name="Progress_Idle" xml:space="preserve"><value>Ready to clean.</value></data>
+  <data name="Progress_Completed" xml:space="preserve"><value>Cleanup completed.</value></data>
+  <data name="Progress_RunningTask" xml:space="preserve"><value>Running: {0}</value></data>
+  <data name="Result_Empty" xml:space="preserve"><value>No cleanup has been run yet.</value></data>
+  <data name="Result_Waiting" xml:space="preserve"><value>Your next cleanup summary will appear here.</value></data>
+  <data name="Result_Working" xml:space="preserve"><value>Cleaning selected areas...</value></data>
+  <data name="Result_Running" xml:space="preserve"><value>TemizPC is deleting the selected temporary data and collecting a summary.</value></data>
+  <data name="Result_Failed" xml:space="preserve"><value>Cleanup could not finish.</value></data>
+  <data name="Result_Completed" xml:space="preserve"><value>Cleanup finished.</value></data>
+  <data name="Result_Summary" xml:space="preserve"><value>Freed {0}, removed {1} items, skipped {2} locked or protected entries.</value></data>
+  <data name="Result_NoErrors" xml:space="preserve"><value>No major errors were reported.</value></data>
+  <data name="Result_ErrorCount" xml:space="preserve"><value>{0} issues were reported during cleanup.</value></data>
+  <data name="Result_TaskLine" xml:space="preserve"><value>{0}: {1}</value></data>
+  <data name="Risk_Safe" xml:space="preserve"><value>Safe</value></data>
+  <data name="Risk_Review" xml:space="preserve"><value>Review</value></data>
+  <data name="Risk_Advanced" xml:space="preserve"><value>Advanced</value></data>
+  <data name="Badge_Recommended" xml:space="preserve"><value>Recommended</value></data>
+  <data name="Badge_Advanced" xml:space="preserve"><value>Advanced</value></data>
+  <data name="Task_Recent_Name" xml:space="preserve"><value>Recent items history</value></data>
+  <data name="Task_Recent_Description" xml:space="preserve"><value>Clears Windows' recent-file shortcuts so file history lists look clean again.</value></data>
+  <data name="Task_WindowsTemp_Name" xml:space="preserve"><value>Windows Temp</value></data>
+  <data name="Task_WindowsTemp_Description" xml:space="preserve"><value>Deletes files from C:\Windows\Temp that are no longer in use.</value></data>
+  <data name="Task_LocalTemp_Name" xml:space="preserve"><value>User Temp</value></data>
+  <data name="Task_LocalTemp_Description" xml:space="preserve"><value>Deletes temporary files created by apps in your local profile.</value></data>
+  <data name="Task_RecycleBin_Name" xml:space="preserve"><value>Recycle Bin</value></data>
+  <data name="Task_RecycleBin_Description" xml:space="preserve"><value>Empties the Recycle Bin to reclaim space from files you already deleted.</value></data>
+  <data name="Task_ThumbnailCache_Name" xml:space="preserve"><value>Thumbnail cache</value></data>
+  <data name="Task_ThumbnailCache_Description" xml:space="preserve"><value>Removes cached thumbnail and icon previews so Windows can rebuild them cleanly.</value></data>
+  <data name="Task_WindowsErrorReports_Name" xml:space="preserve"><value>Windows error reports</value></data>
+  <data name="Task_WindowsErrorReports_Description" xml:space="preserve"><value>Deletes archived crash and error reporting files collected by Windows.</value></data>
+  <data name="Task_DeliveryOptimization_Name" xml:space="preserve"><value>Delivery Optimization cache</value></data>
+  <data name="Task_DeliveryOptimization_Description" xml:space="preserve"><value>Clears cached Windows update delivery files that are no longer needed.</value></data>
+  <data name="Task_Prefetch_Name" xml:space="preserve"><value>Prefetch cache</value></data>
+  <data name="Task_Prefetch_Description" xml:space="preserve"><value>Deletes Windows prefetch data. Windows will rebuild it over time.</value></data>
+  <data name="Task_Prefetch_Warning" xml:space="preserve"><value>Advanced: apps may feel slightly slower the next few launches while Windows rebuilds this cache.</value></data>
+  <data name="Task_WindowsUpdateCache_Name" xml:space="preserve"><value>Windows Update download cache</value></data>
+  <data name="Task_WindowsUpdateCache_Description" xml:space="preserve"><value>Removes downloaded Windows Update packages stored for reuse.</value></data>
+  <data name="Task_WindowsUpdateCache_Warning" xml:space="preserve"><value>Review: if Windows is currently updating, some files will be skipped until the process is complete.</value></data>
+  <data name="Task_CrashDumps_Name" xml:space="preserve"><value>Crash dumps</value></data>
+  <data name="Task_CrashDumps_Description" xml:space="preserve"><value>Deletes memory dump and application crash dump files created for diagnostics.</value></data>
+  <data name="Task_Dism_Name" xml:space="preserve"><value>Component store cleanup</value></data>
+  <data name="Task_Dism_Description" xml:space="preserve"><value>Runs DISM StartComponentCleanup to remove outdated component store data.</value></data>
+  <data name="Task_Dism_Warning" xml:space="preserve"><value>Advanced: this can take a while and should not be interrupted once it starts.</value></data>
+</root>

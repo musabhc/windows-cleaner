@@ -40,11 +40,11 @@ New-Item -ItemType Directory -Force -Path $dotnetHome, $toolDir, $publishDir, $r
 $env:DOTNET_CLI_HOME = $dotnetHome
 
 Write-Host "Restoring projects..."
-dotnet restore $appProject -r $Runtime /p:Version=$Version
+dotnet restore $appProject -r $Runtime /p:Version=$Version /p:InformationalVersion=$Version
 dotnet restore $testProject
 
 Write-Host "Building projects..."
-dotnet build $appProject -c $Configuration --no-restore /p:Version=$Version
+dotnet build $appProject -c $Configuration --no-restore /p:Version=$Version /p:InformationalVersion=$Version
 dotnet build $testProject -c $Configuration --no-restore
 
 Write-Host "Running tests..."
@@ -59,6 +59,7 @@ dotnet publish `
     --no-restore `
     -o $publishDir `
     /p:Version=$Version `
+    /p:InformationalVersion=$Version `
     /p:PublishSingleFile=false
 
 @{

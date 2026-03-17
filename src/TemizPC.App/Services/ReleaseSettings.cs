@@ -5,6 +5,8 @@ namespace TemizPC.App.Services;
 
 public sealed record ReleaseSettings(string GithubRepositoryUrl, bool AllowPrerelease)
 {
+    private const string DefaultGithubRepositoryUrl = "https://github.com/musabhc/windows-cleaner";
+
     public bool IsConfigured =>
         Uri.TryCreate(GithubRepositoryUrl, UriKind.Absolute, out var uri)
         && uri.Host.Contains("github.com", StringComparison.OrdinalIgnoreCase);
@@ -20,8 +22,9 @@ public sealed record ReleaseSettings(string GithubRepositoryUrl, bool AllowPrere
                 var data = JsonSerializer.Deserialize<ReleaseSettingsDto>(json);
                 if (data is not null)
                 {
+                    var repositoryUrl = data.GithubRepositoryUrl?.Trim();
                     return new ReleaseSettings(
-                        data.GithubRepositoryUrl?.Trim() ?? string.Empty,
+                        string.IsNullOrWhiteSpace(repositoryUrl) ? DefaultGithubRepositoryUrl : repositoryUrl,
                         data.AllowPrerelease);
                 }
             }
@@ -31,8 +34,9 @@ public sealed record ReleaseSettings(string GithubRepositoryUrl, bool AllowPrere
             }
         }
 
+        var environmentRepositoryUrl = Environment.GetEnvironmentVariable("TEMIZPC_GITHUB_REPOSITORY")?.Trim();
         return new ReleaseSettings(
-            Environment.GetEnvironmentVariable("TEMIZPC_GITHUB_REPOSITORY")?.Trim() ?? string.Empty,
+            string.IsNullOrWhiteSpace(environmentRepositoryUrl) ? DefaultGithubRepositoryUrl : environmentRepositoryUrl,
             bool.TryParse(Environment.GetEnvironmentVariable("TEMIZPC_ALLOW_PRERELEASE"), out var allowPrerelease)
                 && allowPrerelease);
     }

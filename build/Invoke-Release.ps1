@@ -100,11 +100,24 @@ if ($hasSigningCertificate) {
     Write-Host "Preparing signing certificate..."
     [System.IO.File]::WriteAllBytes($certificatePath, [Convert]::FromBase64String($certificateBase64))
 
-    $publicCertificate = [System.Security.Cryptography.X509Certificates.X509Certificate2]::new()
-    $publicCertificate.Import($certificatePath, $certificatePassword, [System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::Exportable)
-    [System.IO.File]::WriteAllBytes(
-        $publicCertificatePath,
-        $publicCertificate.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Cert))
+    $certificateFlags = `
+        [System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::Exportable `
+        -bor `
+        [System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::EphemeralKeySet
+
+    $publicCertificate = [System.Security.Cryptography.X509Certificates.X509Certificate2]::new(
+        $certificatePath,
+        $certificatePassword,
+        $certificateFlags)
+
+    try {
+        [System.IO.File]::WriteAllBytes(
+            $publicCertificatePath,
+            $publicCertificate.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Cert))
+    }
+    finally {
+        $publicCertificate.Dispose()
+    }
 
     $signParams = "/fd SHA256 /f `"$certificatePath`" /p `"$certificatePassword`" /tr `"$timestampUrl`" /td SHA256"
     $packArguments += @("--signParams", $signParams)

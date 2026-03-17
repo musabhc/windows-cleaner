@@ -16,6 +16,14 @@
 
     <SolidColorBrush x:Key="PanelBrush" Color="#101B2D" />
     <SolidColorBrush x:Key="PanelBorderBrush" Color="#21304A" />
+    <SolidColorBrush x:Key="WindowFrameBorderBrush" Color="#22324A" />
+    <SolidColorBrush x:Key="TitleBarBrush" Color="#07111E" />
+    <SolidColorBrush x:Key="TitleBarButtonBrush" Color="#0E1828" />
+    <SolidColorBrush x:Key="TitleBarButtonHoverBrush" Color="#182842" />
+    <SolidColorBrush x:Key="TitleBarButtonPressedBrush" Color="#0C1524" />
+    <SolidColorBrush x:Key="TitleBarCloseButtonBrush" Color="#1B1722" />
+    <SolidColorBrush x:Key="TitleBarCloseHoverBrush" Color="#B33D58" />
+    <SolidColorBrush x:Key="TitleBarClosePressedBrush" Color="#8E3045" />
     <SolidColorBrush x:Key="TextPrimaryBrush" Color="#F3F7FB" />
     <SolidColorBrush x:Key="TextSecondaryBrush" Color="#9FB0C6" />
     <SolidColorBrush x:Key="TextMutedBrush" Color="#72839C" />
@@ -105,6 +113,85 @@
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="BorderBrush" Value="{StaticResource PanelBorderBrush}" />
         <Setter Property="Foreground" Value="{StaticResource TextSecondaryBrush}" />
+    </Style>
+
+    <Style x:Key="TitleBarButtonStyle" TargetType="Button">
+        <Setter Property="Width" Value="38" />
+        <Setter Property="Height" Value="32" />
+        <Setter Property="Margin" Value="0,0,0,0" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Background" Value="{StaticResource TitleBarButtonBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource PanelBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Foreground" Value="{StaticResource TextSecondaryBrush}" />
+        <Setter Property="FontFamily" Value="Segoe UI Symbol" />
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="ButtonBorder"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="12">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="ButtonBorder"
+                                    Property="Background"
+                                    Value="{StaticResource TitleBarButtonHoverBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="ButtonBorder"
+                                    Property="Background"
+                                    Value="{StaticResource TitleBarButtonPressedBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="ButtonBorder" Property="Opacity" Value="0.45" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="TitleBarCloseButtonStyle" TargetType="Button" BasedOn="{StaticResource TitleBarButtonStyle}">
+        <Setter Property="Background" Value="{StaticResource TitleBarCloseButtonBrush}" />
+        <Setter Property="BorderBrush" Value="#4B2231" />
+        <Setter Property="Foreground" Value="#FFE6ED" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="ButtonBorder"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="12">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="ButtonBorder"
+                                    Property="Background"
+                                    Value="{StaticResource TitleBarCloseHoverBrush}" />
+                            <Setter Property="Foreground" Value="#FFF7FA" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="ButtonBorder"
+                                    Property="Background"
+                                    Value="{StaticResource TitleBarClosePressedBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="ButtonBorder" Property="Opacity" Value="0.45" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 
     <Style TargetType="ProgressBar">

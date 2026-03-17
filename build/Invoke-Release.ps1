@@ -27,6 +27,7 @@ $testProject = Join-Path $root "tests\TemizPC.Tests\TemizPC.Tests.csproj"
 
 $certificateBase64 = $env:CODESIGN_CERTIFICATE_BASE64
 $certificatePassword = $env:CODESIGN_CERTIFICATE_PASSWORD
+$publicCertificatePath = Join-Path $releasesDir "TemizPC-signing.cer"
 $timestampUrl = if ([string]::IsNullOrWhiteSpace($env:CODESIGN_TIMESTAMP_URL)) {
     "http://timestamp.digicert.com"
 }
@@ -99,9 +100,16 @@ if ($hasSigningCertificate) {
     Write-Host "Preparing signing certificate..."
     [System.IO.File]::WriteAllBytes($certificatePath, [Convert]::FromBase64String($certificateBase64))
 
+    $publicCertificate = [System.Security.Cryptography.X509Certificates.X509Certificate2]::new()
+    $publicCertificate.Import($certificatePath, $certificatePassword, [System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::Exportable)
+    [System.IO.File]::WriteAllBytes(
+        $publicCertificatePath,
+        $publicCertificate.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Cert))
+
     $signParams = "/fd SHA256 /f `"$certificatePath`" /p `"$certificatePassword`" /tr `"$timestampUrl`" /td SHA256"
     $packArguments += @("--signParams", $signParams)
     Write-Host "Packaging signed release..."
+    Write-Host "Public signing certificate exported to: $publicCertificatePath"
 }
 else {
     Write-Host "No code-signing certificate configured. Packaging unsigned release."

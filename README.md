@@ -84,6 +84,42 @@ Required secrets:
 - `CODESIGN_CERTIFICATE_PASSWORD` (optional, for signed releases)
 - `CODESIGN_TIMESTAMP_URL` (optional; defaults to DigiCert timestamp)
 
+## Self-signed signing flow
+
+For private use with your own machines or friends' machines, you can use a self-signed code-signing certificate.
+
+1. Create the certificate locally:
+
+```powershell
+./build/New-SelfSignedCodeSigningCert.ps1 -Password "change-this-password"
+```
+
+This creates:
+
+- `artifacts/signing/TemizPC-codesign-selfsigned.pfx`
+- `artifacts/signing/TemizPC-codesign-selfsigned.cer`
+- `artifacts/signing/codesign-certificate-base64.txt`
+- `artifacts/signing/github-secrets-instructions.txt`
+
+2. Add GitHub secrets:
+
+- `CODESIGN_CERTIFICATE_BASE64`: contents of `codesign-certificate-base64.txt`
+- `CODESIGN_CERTIFICATE_PASSWORD`: the password you passed to the script
+
+3. Trust the certificate on every machine that should run the signed app without certificate warnings:
+
+```powershell
+./build/Install-CodeSigningTrust.ps1 -CertificatePath ./artifacts/signing/TemizPC-codesign-selfsigned.cer -Scope CurrentUser
+```
+
+Use `-Scope LocalMachine` from an elevated PowerShell session if you want to trust it for all users on that PC.
+
+Notes:
+
+- This is suitable for personal/friend distribution, not for broad public distribution.
+- Windows SmartScreen reputation is still separate. Even with a trusted self-signed certificate, new downloads may still show reputation warnings on machines that do not trust your certificate yet.
+- During a signed release, the pipeline exports `TemizPC-signing.cer` into the release output so you can distribute the public certificate alongside the installer.
+
 ## Notes
 
 - The original batch snippet contained an `exit` before the local temp cleanup line. In this app, local temp cleanup is implemented as its own proper task instead of preserving that bug.
